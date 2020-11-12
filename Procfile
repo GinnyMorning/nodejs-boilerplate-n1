@@ -1,1 +1,1 @@
-react: yarn start
+react: yarn install && yarn start

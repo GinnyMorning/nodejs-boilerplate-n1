@@ -13,7 +13,7 @@ const swaggerDef = {
   },
   servers: [
     {
-      url: `https://nodejs-boilerplate-n1.herokuapp.com/:${config.port}/v1`,
+      url: `https://nodejs-boilerplate-n1.herokuapp.com:${config.port}/v1`,
     },
   ],
 };

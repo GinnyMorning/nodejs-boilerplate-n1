@@ -10,8 +10,8 @@ router.route('/create').post(auth('getUsers'), validate(orderValidation.createOr
 
 router
   .route('/:orderId')
-  .get(auth('getUsers'), validate(orderValidation.getOrderById), orderController.getOrderById)
-  .patch(auth('getUsers'), validate(orderValidation.updateOrderById), orderController.updateOrderById)
+  .get(auth('getUsers'), validate(orderValidation.getOrderById), orderController.getOrder)
+  .patch(auth('getUsers'), validate(orderValidation.updateOrderById), orderController.updateOder)
   .delete(auth('getUsers'), validate(orderValidation.deleteOrder), orderController.deleteOrder);
 
 module.exports = router;

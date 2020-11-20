@@ -21,7 +21,11 @@ const createOrder = async (updateBody) => {
  * @returns {Promise<Order>}
  */
 const getOrderById = async (id) => {
-  return Order.findById(id);
+  const order = Order.findById(id);
+  if (!order) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'Order not found');
+  }
+  return order;
 };
 
 /**

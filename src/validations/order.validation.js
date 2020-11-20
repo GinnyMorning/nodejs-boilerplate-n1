@@ -22,7 +22,6 @@ const updateOrderById = {
   body: Joi.object().keys({
     productIds: Joi.string(),
     orderStatus: Joi.string(),
-    dateCreate: Joi.date(),
   }),
 };
 

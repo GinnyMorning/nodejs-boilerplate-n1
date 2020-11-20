@@ -6,8 +6,8 @@ const { orderController } = require('../../controllers/index');
 const router = express.Router();
 
 router.post('/create-order', validate(orderValidation.createOrder), orderController.createOrder);
-router.post('/get-order', validate(orderValidation.getOrderById), orderController.getOrderById);
-router.post('/update-order', validate(orderValidation.updateOrderById), orderController.updateOrderById);
-router.post('/delete-order', validate(orderValidation.deleteOrder), orderController.deleteOrder);
+router.get('/get-order/:orderId', validate(orderValidation.getOrderById), orderController.getOrderById);
+router.put('/update-order/:orderId', validate(orderValidation.updateOrderById), orderController.updateOrderById);
+router.delete('/delete-order/:orderId', validate(orderValidation.deleteOrder), orderController.deleteOrder);
 
 module.exports = router;

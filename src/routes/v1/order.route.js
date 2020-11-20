@@ -8,10 +8,10 @@ const router = express.Router();
 
 router.route('/').post(auth('getUsers'), validate(orderValidation.createOrder), orderController.createOrder);
 
-router
-  .route('/:orderId')
-  .get(auth('getUsers'), validate(orderValidation.getOrderById), orderController.getOrderById)
-  .patch(auth('getUsers'), validate(orderValidation.updateOrderById), orderController.updateOrderById)
-  .delete(auth('getUsers'), validate(orderValidation.deleteOrder), orderController.deleteOrder);
+// router
+//   .route('/:orderId')
+//   .get(auth('getUsers'), validate(orderValidation.getOrderById), orderController.getOrderById)
+//   .patch(auth('getUsers'), validate(orderValidation.updateOrderById), orderController.updateOrderById)
+//   .delete(auth('getUsers'), validate(orderValidation.deleteOrder), orderController.deleteOrder);
 
 module.exports = router;

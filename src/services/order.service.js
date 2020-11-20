@@ -11,9 +11,7 @@ const createOrder = async (updateBody) => {
   //   if (await Order.isEmailTaken(orderBody.userId)) {
   //     throw new ApiError(httpStatus.BAD_REQUEST, 'Email already taken');
   //   }
-  const order = await Order.create({
-    updateBody,
-  });
+  const order = await Order.create(updateBody);
   return order;
 };
 

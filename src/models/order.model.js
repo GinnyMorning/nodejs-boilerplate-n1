@@ -3,9 +3,9 @@ const orderStatus = require('../config/orderStatus');
 const { toJSON } = require('./plugins');
 
 const orderSchema = mongoose.Schema({
-  userIds: {
+  userId: {
     type: mongoose.SchemaTypes.ObjectId,
-    ref: 'users',
+    ref: 'User',
     required: true,
   },
   // orderId: {

@@ -13,6 +13,7 @@ const createOrder = async (updateBody) => {
   //   }
   const order = await Order.create({
     updateBody,
+    userId: '5fb4ea44009e7d002cb4821f',
   });
   return order;
 };

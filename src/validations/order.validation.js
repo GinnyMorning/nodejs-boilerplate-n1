@@ -3,7 +3,7 @@ const { objectId } = require('./custom.validation');
 
 const createOrder = {
   body: Joi.object().keys({
-    userId: Joi.string().string(),
+    userId: Joi.string(),
     productIds: Joi.string(),
     orderStatus: Joi.string().valid('new'),
   }),

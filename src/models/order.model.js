@@ -9,7 +9,7 @@ const orderSchema = mongoose.Schema({
     required: true,
   },
   orderId: {
-    type: Number,
+    type: mongoose.SchemaTypes.ObjectId,
     require: true,
     trim: true,
     index: true,

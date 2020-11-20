@@ -5,7 +5,7 @@ const ApiError = require('../utils/ApiError');
 /**
  * Create a order
  * @param {ObjectId} userId
- * @param {String} orderId
+ * @param {ObjectId} orderId
  * @param {String} productIds
  * @param {String} orderStatus
  * @param {Date} dateCreate

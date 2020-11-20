@@ -6,7 +6,7 @@ const { orderController } = require('../../controllers/index');
 
 const router = express.Router();
 
-router.route('/').post(auth('getUsers'), validate(orderValidation.createOrder), orderController.createOrder);
+router.route('/create').post(auth('getUsers'), validate(orderValidation.createOrder), orderController.createOrder);
 
 // router
 //   .route('/:orderId')

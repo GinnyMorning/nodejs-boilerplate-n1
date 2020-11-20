@@ -9,7 +9,7 @@ const router = express.Router();
 router.route('/create').post(auth('getUsers'), validate(orderValidation.createOrder), orderController.createOrder);
 
 router
-  .route('/:orderId')
+  .route('/order/:orderId')
   .get(auth('getUsers'), validate(orderValidation.getOrderById), orderController.getOrder)
   .patch(auth('getUsers'), validate(orderValidation.updateOrderById), orderController.updateOder)
   .delete(auth('getUsers'), validate(orderValidation.deleteOrder), orderController.deleteOrder);

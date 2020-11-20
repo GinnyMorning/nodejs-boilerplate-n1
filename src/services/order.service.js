@@ -4,23 +4,15 @@ const ApiError = require('../utils/ApiError');
 
 /**
  * Create a order
- * @param {ObjectId} userId
- * @param {ObjectId} orderId
- * @param {String} productIds
- * @param {String} orderStatus
- * @param {Date} dateCreate
+ * @param {Object} updateBody
  * @returns {Promise<Order>}
  */
-const createOrder = async (userId, orderId, productIds, orderStatus, dateCreate) => {
+const createOrder = async (updateBody) => {
   //   if (await Order.isEmailTaken(orderBody.userId)) {
   //     throw new ApiError(httpStatus.BAD_REQUEST, 'Email already taken');
   //   }
   const order = await Order.create({
-    userId,
-    orderId,
-    productIds,
-    orderStatus,
-    dateCreate,
+    updateBody,
   });
   return order;
 };

@@ -5,7 +5,7 @@ const { toJSON } = require('./plugins');
 const orderSchema = mongoose.Schema({
   userId: {
     type: mongoose.SchemaTypes.ObjectId,
-    ref: 'User',
+    ref: 'users',
     required: true,
   },
   // orderId: {
@@ -22,10 +22,6 @@ const orderSchema = mongoose.Schema({
     type: String,
     enum: [orderStatus.NEW, orderStatus.ACCEPTED, orderStatus.PROCCESSING, orderStatus.COMPLEDTED, orderStatus.CANCEL],
     require: true,
-  },
-  dateCreate: {
-    type: Date,
-    trim: true,
   },
 });
 

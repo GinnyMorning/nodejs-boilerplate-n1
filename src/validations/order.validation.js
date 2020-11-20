@@ -4,10 +4,8 @@ const { objectId } = require('./custom.validation');
 const createOrder = {
   body: Joi.object().keys({
     userId: Joi.string().custom(objectId),
-    orderId: Joi.string().custom(objectId),
     productIds: Joi.string(),
-    orderStatus: Joi.string(),
-    dateCreate: Joi.date(),
+    orderStatus: Joi.string().valid('new'),
   }),
 };
 

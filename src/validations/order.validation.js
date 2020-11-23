@@ -22,7 +22,7 @@ const updateOrderById = {
   }),
   body: Joi.object().keys({
     productIds: Joi.string(),
-    orderStatus: Joi.string().validate([...Object.values(status)]),
+    orderStatus: Joi.string().valid([status.NEW,status.ACCEPTED,status.CANCEL]),
   }),
 };
 

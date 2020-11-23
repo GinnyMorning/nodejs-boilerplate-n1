@@ -1,11 +1,5 @@
-const {key,status} = {
-  NEW: 'new',
-  ACCEPTED: 'accepted',
-  PROCCESSING: 'proccesing',
-  COMPLEDTED: 'completed',
-  CANCEL: 'cancel',
-};
+const status = ['new','accepted','proccesing','completed','cancel'];
 
 module.exports = {
-  key,status
+  status
 };

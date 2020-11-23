@@ -1,6 +1,6 @@
 const Joi = require('joi');
 const { objectId } = require('./custom.validation');
-const status = require('../config/orderStatus');
+const {status} = require('../config/orderStatus');
 
 const createOrder = {
   body: Joi.object().keys({
@@ -22,7 +22,7 @@ const updateOrderById = {
   }),
   body: Joi.object().keys({
     productIds: Joi.string(),
-    orderStatus: Joi.string().valid([status.NEW,status.ACCEPTED,status.CANCEL]),
+    orderStatus: Joi.string().valid(...status),
   }),
 };
 

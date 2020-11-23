@@ -1,4 +1,4 @@
-const status = {
+const {key,status} = {
   NEW: 'new',
   ACCEPTED: 'accepted',
   PROCCESSING: 'proccesing',
@@ -7,5 +7,5 @@ const status = {
 };
 
 module.exports = {
-  status,
+  key,status
 };

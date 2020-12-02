@@ -1,5 +1,6 @@
 const httpStatus = require('http-status');
 const ApiError = require('../utils/ApiError');
+const pick = require('../utils/pick');
 const catchAsync = require('../utils/catchAsync');
 const { orderService } = require('../services');
 
@@ -14,6 +15,13 @@ const getOrder = catchAsync(async (req, res) => {
     throw new ApiError(httpStatus.NOT_FOUND, 'No order found');
   }
   res.send(order);
+});
+
+const getOrders = catchAsync(async (req, res) => {
+  const filter = pick(req.query, ['name', 'role']);
+  const options = pick(req.query, ['sortBy', 'limit', 'page']);
+  const result = await orderService.queryUsers(filter, options);
+  res.send(result);
 });
 
 const updateOder = catchAsync(async (req, res) => {
@@ -35,6 +43,7 @@ const deleteOrder = catchAsync(async (req, res) => {
 module.exports = {
   createOrder,
   getOrder,
+  getOrders,
   updateOder,
   deleteOrder,
 };

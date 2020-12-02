@@ -16,6 +16,20 @@ const createOrder = async (updateBody) => {
 };
 
 /**
+ * Query for users
+ * @param {Object} filter - Mongo filter
+ * @param {Object} options - Query options
+ * @param {string} [options.sortBy] - Sort option in the format: sortField:(desc|asc)
+ * @param {number} [options.limit] - Maximum number of results per page (default = 10)
+ * @param {number} [options.page] - Current page (default = 1)
+ * @returns {Promise<QueryResult>}
+ */
+const queryOrders = async (filter, options) => {
+  const order = await Order.paginate(filter, options);
+  return order;
+};
+
+/**
  * Get order by id
  * @param {ObjectId} id
  * @returns {Promise<Order>}
@@ -63,6 +77,7 @@ const deleteOrderById = async (orderId) => {
 
 module.exports = {
   createOrder,
+  queryOrders,
   getOrderById,
   updateOrderById,
   deleteOrderById,

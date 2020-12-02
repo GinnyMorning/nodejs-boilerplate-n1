@@ -1,6 +1,6 @@
 const Joi = require('joi');
 const { objectId } = require('./custom.validation');
-const {status} = require('../config/orderStatus');
+const { status } = require('../config/orderStatus');
 
 const createOrder = {
   body: Joi.object().keys({
@@ -10,6 +10,15 @@ const createOrder = {
   }),
 };
 
+const getOrders = {
+  query: Joi.object().keys({
+    userId: Joi.string().custom(objectId),
+    productIds: Joi.string(),
+    sortBy: Joi.string(),
+    limit: Joi.number().integer(),
+    page: Joi.number().integer(),
+  }),
+};
 const getOrderById = {
   params: Joi.object().keys({
     orderId: Joi.string().custom(objectId),
@@ -34,6 +43,7 @@ const deleteOrder = {
 
 module.exports = {
   createOrder,
+  getOrders,
   getOrderById,
   updateOrderById,
   deleteOrder,

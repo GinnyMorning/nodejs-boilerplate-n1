@@ -10,8 +10,8 @@ router.route('/create').post(auth('getUsers'), validate(orderValidation.createOr
 
 router
   .route('/')
-  .post(auth('manageUsers'), validate(orderValidation.createOrder), orderController.createOrder)
-  .get(auth('getUsers'), validate(orderValidation.getOrderById), orderController.getOrders);
+  // .post(auth('manageUsers'), validate(orderValidation.createOrder), orderController.createOrder)
+  .get(auth('getUsers'), validate(orderValidation.getOrders), orderController.getOrders);
 
 router
   .route('/:orderId')

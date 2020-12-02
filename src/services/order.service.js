@@ -16,7 +16,7 @@ const createOrder = async (updateBody) => {
 };
 
 /**
- * Query for users
+ * Query for orders
  * @param {Object} filter - Mongo filter
  * @param {Object} options - Query options
  * @param {string} [options.sortBy] - Sort option in the format: sortField:(desc|asc)
@@ -35,7 +35,7 @@ const queryOrders = async (filter, options) => {
  * @returns {Promise<Order>}
  */
 const getOrderById = async (id) => {
-  const order = Order.findById(id);
+  const order = await Order.findById(id);
   if (!order) {
     throw new ApiError(httpStatus.NOT_FOUND, 'Order not found');
   }
@@ -49,7 +49,7 @@ const getOrderById = async (id) => {
  * @returns {Promise<Order>}
  */
 const updateOrderById = async (orderId, updateBody) => {
-  const order = await getOrderById(orderId);
+  const order = getOrderById(orderId);
   if (!order) {
     throw new ApiError(httpStatus.NOT_FOUND, 'Order not found');
   }

@@ -11,7 +11,7 @@ router.route('/create').post(auth('getUsers'), validate(orderValidation.createOr
 router
   .route('/')
   .post(auth('manageUsers'), validate(orderValidation.createOrder), orderController.createOrder)
-  .get(auth('getUsers'), validate(orderValidation.getOrderById), orderController.getOrder);
+  .get(auth('getUsers'), validate(orderValidation.getOrderById), orderController.getOrders);
 
 router
   .route('/:orderId')

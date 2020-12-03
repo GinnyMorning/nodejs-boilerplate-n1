@@ -18,9 +18,9 @@ const getOrder = catchAsync(async (req, res) => {
 });
 
 const getOrders = catchAsync(async (req, res) => {
-  const filter = pick(req.query, ['name', 'role']);
+  const filter = pick(req.query, ['id', 'userId']);
   const options = pick(req.query, ['sortBy', 'limit', 'page']);
-  const result = await orderService.queryUsers(filter, options);
+  const result = await orderService.queryOrders(filter, options);
   res.send(result);
 });
 

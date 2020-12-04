@@ -43,13 +43,13 @@ const getOrderById = async (id) => {
 };
 
 /**
- * Update user by id
+ * Update order by id
  * @param {ObjectId} orderId
  * @param {Object} updateBody
  * @returns {Promise<Order>}
  */
 const updateOrderById = async (orderId, updateBody) => {
-  const order = getOrderById(orderId);
+  const order = await getOrderById(orderId);
   if (!order) {
     throw new ApiError(httpStatus.NOT_FOUND, 'Order not found');
   }

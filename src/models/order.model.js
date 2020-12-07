@@ -7,18 +7,13 @@ const orderSchema = mongoose.Schema(
     userId: {
       type: mongoose.SchemaTypes.ObjectId,
       ref: 'User',
-      // required: true,
+      required: true,
     },
-    // orderId: {
-    //   type: mongoose.SchemaTypes.ObjectId,
-    //   require: true,
-    //   trim: true,
-    //   index: true,
-    // },
     productIds: {
       type: String,
       require: true,
     },
+    shippingDetails: {},
     orderStatus: {
       type: String,
       enum: [orderStatus.NEW, orderStatus.ACCEPTED, orderStatus.PROCCESSING, orderStatus.COMPLEDTED, orderStatus.CANCEL],

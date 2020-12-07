@@ -30,7 +30,7 @@ const updateOrderById = {
     orderId: Joi.string().custom(objectId),
   }),
   body: Joi.object().keys({
-    productIds: Joi.string(),
+    productIds: Joi.string().required(),
     orderStatus: Joi.string().valid(...status),
   }),
 };

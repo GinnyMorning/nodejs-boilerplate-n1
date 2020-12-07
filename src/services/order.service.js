@@ -54,7 +54,7 @@ const updateOrderById = async (orderId, updateBody) => {
     throw new ApiError(httpStatus.NOT_FOUND, 'Order not found');
   }
   if (!updateBody.productIds) {
-    throw new ApiError(httpStatus.BAD_REQUEST, 'Order must have at least 1 prodyct');
+    throw new ApiError(httpStatus.BAD_REQUEST, 'Order must have at least 1 product');
   }
   Object.assign(order, updateBody);
   await order.save();

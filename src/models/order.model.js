@@ -9,15 +9,18 @@ const orderSchema = mongoose.Schema(
       ref: 'User',
       required: true,
     },
-    productIds: {
-      type: String,
-      require: true,
+    shippingDetails: {
+      address: { type: String, require: true },
+      phone: { type: String, require: true },
     },
-    shippingDetails: {},
     orderStatus: {
       type: String,
       enum: [orderStatus.NEW, orderStatus.ACCEPTED, orderStatus.PROCCESSING, orderStatus.COMPLEDTED, orderStatus.CANCEL],
       require: true,
+    },
+    comment: {
+      type: String,
+      require: false,
     },
   },
   {

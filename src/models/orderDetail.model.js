@@ -8,6 +8,15 @@ const orderDetailSchema = mongoose.Schema(
       ref: 'Order',
       required: true,
     },
+    product: [],
+    total: {
+      type: Number,
+      require: true,
+    },
+    payment: {
+      type: Number,
+      require: true,
+    },
   },
   {
     timestamps: true,

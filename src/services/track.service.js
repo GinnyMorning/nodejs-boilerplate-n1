@@ -30,7 +30,7 @@ const queryTracks = async (filter, options) => {
 };
 
 /**
- * Get order by id
+ * Get track by id
  * @param {ObjectId} id
  * @returns {Promise<Track>}
  */
@@ -43,7 +43,7 @@ const getTrackById = async (id) => {
 };
 
 /**
- * Delete user by id
+ * Delete track by id
  * @param {ObjectId} trackId
  * @returns {Promise<Track>}
  */

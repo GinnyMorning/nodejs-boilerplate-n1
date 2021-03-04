@@ -1,5 +1,6 @@
 const httpStatus = require('http-status');
 const catchAsync = require('../utils/catchAsync');
+const pick = require('../utils/pick');
 const { trackService } = require('../services');
 
 const createTrack = catchAsync(async (req, res) => {
@@ -7,11 +8,13 @@ const createTrack = catchAsync(async (req, res) => {
   res.status(httpStatus.CREATED).send(track);
 });
 const getTracks = catchAsync(async (req, res) => {
-  const tracks = trackService.getTracks(req.params.userId);
-  res.send(tracks);
+  const filter = pick(req.query, ['id', 'userId']);
+  const options = pick(req.query, ['sortBy', 'limit', 'page']);
+  const result = await trackService.queryTracks(filter, options);
+  res.send(result);
 });
 const getTrackibyId = catchAsync(async (req, res) => {
-  const track = await trackService.findTrackById(req.body.trackId);
+  const track = await trackService.getTrackById(req.body.trackId);
   res.send(track);
 });
 

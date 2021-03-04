@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { toJSON, paginate } = require('./plugins');
 
 const pointSchema = new mongoose.Schema({
   timestamp: Number,
@@ -23,6 +24,10 @@ const trackSchema = new mongoose.Schema({
   },
   locations: [pointSchema],
 });
+
+// add plugin that converts mongoose to json
+trackSchema.plugin(toJSON);
+trackSchema.plugin(paginate);
 
 const Track = mongoose.model('Track', trackSchema);
 

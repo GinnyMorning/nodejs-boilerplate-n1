@@ -19,19 +19,19 @@ const createOrderValidate = {
   }),
 };
 const getTracksValidate = {
-  params: Joi.object.keys({
+  params: Joi.object().keys({
     userId: Joi.string().custom(objectId).required(),
   }),
 };
 
 const getTrackByIdValidate = {
-  body: Joi.object.keys({
+  body: Joi.object().keys({
     trackId: Joi.string().custom(objectId).required(),
   }),
 };
 
 const deleteTrackValidation = {
-  body: Joi.object.keys({
+  body: Joi.object().keys({
     trackId: Joi.string().custom(objectId).required(),
   }),
 };

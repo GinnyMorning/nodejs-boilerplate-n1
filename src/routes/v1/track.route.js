@@ -5,15 +5,16 @@ const trackValidation = require('../../validations/track.validation');
 const trackController = require('../../controllers/track.controller');
 
 const router = express.Router();
+router.route('/create').post(auth('getUsers'), validate(trackValidation.createOrderValidate), trackController.createTrack);
 
 router
   .route('/')
-  .post(auth('manageUsers'), validate(trackValidation.createOrderValidate), trackController.createTrack)
-  .get(auth('manageUsers'), validate(trackValidation.getTracksValidate), trackController.getTracks);
+  // .post(auth('getUsers'), validate(trackValidation.createOrderValidate), trackController.createTrack)
+  .get(auth('getUsers'), validate(trackValidation.getTracksValidate), trackController.getTracks);
 
 router
   .route('/:trackId')
-  .get(auth('getTrack'), validate(trackValidation.getTrackByIdValidate), trackController.getTrackibyId)
-  .delete(auth('deleteTrack'), validate(trackValidation.deleteTrackValidation), trackController.deleteTrack);
+  .get(auth('getUsers'), validate(trackValidation.getTrackByIdValidate), trackController.getTrackibyId)
+  .delete(auth('getUsers'), validate(trackValidation.deleteTrackValidation), trackController.deleteTrack);
 
 module.exports = router;

@@ -8,10 +8,10 @@ const ApiError = require('../utils/ApiError');
  * @param {Object} updateBody
  * @returns {Promise<Track>}
  */
-const createTrack = async (id, updateBody) => {
-  if (!id || !updateBody) throw new ApiError(httpStatus.BAD_REQUEST, 'User not found');
+const createTrack = async (updateBody) => {
+  if (!updateBody.userId || !updateBody) throw new ApiError(httpStatus.BAD_REQUEST, 'User not found');
 
-  const track = Track.create(id, updateBody);
+  const track = Track.create(updateBody);
   return track;
 };
 

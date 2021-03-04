@@ -14,12 +14,12 @@ const getTracks = catchAsync(async (req, res) => {
   res.send(result);
 });
 const getTrackibyId = catchAsync(async (req, res) => {
-  const track = await trackService.getTrackById(req.body.trackId);
+  const track = await trackService.getTrackById(req.params.trackId);
   res.send(track);
 });
 
 const deleteTrack = catchAsync(async (req, res) => {
-  await trackService.deleteTrackById(req.body.trackId);
+  await trackService.deleteTrackById(req.params.trackId);
   res.status(httpStatus.NO_CONTENT).send();
 });
 module.exports = {

@@ -18,3 +18,10 @@ router
   .delete(auth('getUsers'), validate(trackValidation.deleteTrackValidation), trackController.deleteTrack);
 
 module.exports = router;
+
+/**
+ * @swagger
+ * tags:
+ *   name: Tracks
+ *   description: Tracking user base on map locations
+ */

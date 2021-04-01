@@ -20,3 +20,10 @@ router
   .delete(auth('getUsers'), validate(orderValidation.deleteOrder), orderController.deleteOrder);
 
 module.exports = router;
+
+/**
+ * @swagger
+ * tags:
+ *   name: Orders
+ *   description: Manager user's Order
+ */

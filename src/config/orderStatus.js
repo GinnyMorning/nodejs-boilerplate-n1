@@ -1,5 +1,5 @@
-const status = ['new','accepted','proccesing','completed','cancel'];
+const status = ['new', 'accepted', 'proccesing', 'completed', 'cancel'];
 
 module.exports = {
-  status
+  status,
 };
